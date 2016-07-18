@@ -1,0 +1,16 @@
+{% extends 'PipiTrainingBundle:Blog:sidebarLayout.html.twig' %}
+
+
+
+{% block title %} Strona Admina - tak się wygina {{ register.id }} {% endblock %}
+
+
+
+{% block contentContainer %}
+    <article class="col-md-8">
+        <h2>Aktualizacja danych</h2><br/>
+
+        {{ form(form, {'attr': {'novalidate':'true'}}) }}
+
+    </article>
+{% endblock %}

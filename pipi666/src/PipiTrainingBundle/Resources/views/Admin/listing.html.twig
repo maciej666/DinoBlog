@@ -1,0 +1,54 @@
+{% extends 'PipiTrainingBundle:Blog:sidebarLayout.html.twig' %}
+
+
+
+{% block title %} Strona Admina - tak się wygina {% endblock %}
+
+
+
+{% block contentContainer %}
+    <article class="col-md-8">
+        <h1>Lista Zarejestrowanych</h1>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imię i Nazwisko</th>
+                    <th>Kraj</th>
+                    <th>Kurs</th>
+                    <th>Email</th>
+                    <th>Guzik</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in rows %}
+                <tr>
+                    <td>{{ entry.id }}</td>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.country }}</td>
+                    <td>{{ entry.course }}</td>
+                    <td>{{ entry.email }}</td>
+                    <td>
+                        {#{% if btns == true %}#}
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-sm btn-info" href="{{ path('admin_details', {'id' : entry.id} ) }}"> Zobacz szczegóły </a>
+                        <a class="btn btn-sm btn-danger" href="{{ path('admin_delete', {'id' : entry.id} ) }}"> Usuń rekord </a>
+                        {% else %}
+                            Nie posiadasz żadnych akcji.
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">Brak rejestrantów</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <hr/>
+            <h4>Zalogowany jako: {{ app.user.username }}</h4>
+            <h4>Posiadane role: {{ app.user.roles|join(', ') }}</h4>
+            <h4>Sposób z kontrolera: {{ user }}</h4>
+    </article>
+{% endblock %}

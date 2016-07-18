@@ -1,0 +1,50 @@
+security:
+
+                                                                    #sposoby kodowania hasła, domyślnie słabe
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:                                                 #tak np. role_admin ma uprawnienia role_user
+        ROLE_MODERATOR:   ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER, ROLE_MODERATOR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:                                                      #definiujemy tu źródła informacji o użytkownikach (to jest sposób najbardziej bezpośredni, w innym wypadku źróddłem może być np. baza danych
+        in_memory:
+            memory:
+              users:
+                user:
+                    password: karo666
+                    roles: 'ROLE_USER'
+                admin:
+                    password: karo666
+                    roles: 'ROLE_ADMIN'
+                mod:
+                    password: karo666
+                    roles: 'ROLE_MODERATOR'
+
+    firewalls:                                                      #definiuje strefy które mają być zabezpieczane przez komponent
+        dev:                                                        #pozwala bezproblemowo pracować z profilerem
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        blog_admin:
+            pattern: ^/blog/admin                                   #gdybym podał po admin znak $ to podadresy URL jak np. blog/admin/details nie byłyby objęte firewallem
+            anonymous: false                                        #info że wewnątrz zabezpieczonych stron, nie pozwala na dostęp niezalogowanym
+            http_basic:
+                realm: "Pipi Admin Panel"                           #do mojego bloga loguje się za pomocą haseł z providers:
+        main:
+            anonymous: ~
+
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+                                                                    #określanie dostęp do konkretnych stron konkretnym rolom
+    access_control:
+        - { path: ^/blog/admin/update|details, roles: ROLE_ADMIN }
+        - { path: ^/blog/admin, roles: ROLE_MODERATOR }

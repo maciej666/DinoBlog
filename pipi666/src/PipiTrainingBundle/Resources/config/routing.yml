@@ -1,0 +1,25 @@
+pipi_training_homepage:
+    path:     /
+    defaults: { _controller: PipiTrainingBundle:Default:index }
+
+#pipi_training_dupa:
+#    path:     /dupa
+#    defaults: { _controller: PipiTrainingBundle:Default:dupa}
+
+pipi_training_annotation:
+    resource: "@PipiTrainingBundle/Controller/DefaultController.php"
+    type: annotation
+
+pipi_training_annotation2:
+    resource: "@PipiTrainingBundle/Controller/BlogController.php"
+    type: annotation
+
+pipi_training_annotation3:
+    resource: "@PipiTrainingBundle/Controller"   #można dać cały folder:)
+    type: annotation
+
+o_mnie:
+    path: /blog/about
+    defaults:
+        _controller: FrameworkBundle:Template:template                 # Domyślny kontroler
+        template: PipiTrainingBundle:Blog:about.html.twig

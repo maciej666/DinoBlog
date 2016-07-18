@@ -1,0 +1,24 @@
+Array
+(
+    [country] => PN
+    [name] => Maciej Jedral
+    [email] => fdsfsd@tlen.pl
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1908-07-17 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [course] => basic
+    [invest] => Array
+        (
+            [0] => f
+            [1] => a
+            [2] => o
+        )
+
+    [comments] => cvdnxc
+    [rules] => 1
+)

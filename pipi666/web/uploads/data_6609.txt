@@ -1,0 +1,22 @@
+Array
+(
+    [name] => fdsfsd fsdfs
+    [email] => dasdas@fds.pl
+    [sex] => f
+    [birthdate] => DateTime Object
+        (
+            [date] => 1911-10-17 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => basic
+    [invest] => Array
+        (
+            [0] => o
+            [1] => etf
+        )
+
+    [comments] => das
+)

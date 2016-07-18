@@ -1,0 +1,13 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: pipi666
+    database_user: root
+    database_password: karo666
+    mailer_transport: gmail
+    mailer_host: null
+    mailer_user: boban.kamienczuk@gmail.com
+    mailer_password: Karolina666
+    secret: ThisTokenIsNotSoSecretChangeIt
+    locale: pl

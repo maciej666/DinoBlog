@@ -1,0 +1,22 @@
+Array
+(
+    [name] => fdsfsd fsdfs
+    [email] => fdsfsd@trtre.pl
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1912-04-17 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => at
+    [invest] => Array
+        (
+            [0] => o
+            [1] => etf
+        )
+
+    [comments] => dsad
+)

@@ -1,0 +1,22 @@
+Array
+(
+    [name] => Bazyl Defo
+    [email] => Gongor@pamidor.pl
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1912-05-19 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => af
+    [invest] => Array
+        (
+            [0] => a
+            [1] => o
+        )
+
+    [comments] => Niech pieprz rośnie tam gdzie wybrać się chcesz, bo moję szony dorwą Cię
+)

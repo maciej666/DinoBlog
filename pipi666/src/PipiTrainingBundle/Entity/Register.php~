@@ -1,0 +1,145 @@
+<?php
+
+
+namespace PipiTrainingBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM; //do utowrzenia tabeli na podstawi encji
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="registrations")
+ */
+class Register
+{
+//    ostatnie to autoinkrementacja
+   /**
+    * @ORM\Column(type="integer")
+    * @ORM\Id
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
+    private $id;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Regex(
+     *          pattern = "/^[a-zA-Z]+ [a-zA-Z]+$/",
+     *          message = "Musisz podać imię i nazwisko"
+     * )
+     */
+    private $name;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Email
+     */
+    private $email;
+
+//    Ostatnia wartość zaznacza że pole nie jest konieczne w fomularzu
+    /**
+     *@ORM\Column(type="string", length=1, nullable=true)
+     */
+    private $sex;
+
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     *
+     * @Assert\Date
+     *
+     */
+    private $birthdate;
+
+
+    /**
+     * @ORM\Column(type="string", length=2)
+     *
+     * @Assert\NotBlank
+     *
+     */
+    private $country;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     *
+     */
+    private $course;
+
+
+    /**
+     * @ORM\Column(type="array")
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Count(
+     *          min = 2
+     * )
+     */
+    private $invest;
+
+
+    /**
+     *@ORM\Column(type="text", nullable=true)
+     */
+    private $comments;
+
+
+    /**
+     * @Assert\NotBlank
+     *
+     * @Assert\File(
+     *          maxSize = "1M",
+     *          mimeTypes = {"application/pdf", "application/x-pdf"},
+     *          mimeTypesMessage = "Potwierdzenie przelewu musi być w formacie .pdf"
+     * )
+     */
+    private $paymentFile;
+
+
+    
+    /**
+     * @return mixed
+     */
+    public function getPaymentFile()
+    {
+        return $this->paymentFile;
+    }
+
+    /**
+     * @param mixed $paymentFile
+     */
+    public function setPaymentFile($paymentFile)
+    {
+        $this->paymentFile = $paymentFile;
+    }
+
+    //Sposób zapisywania wszystkich danych na dysku
+    public function save($savePath){
+
+        $paramsNames = array('name', 'email', 'sex', 'birthdate', 'country', 'course', 'invest', 'comments');
+        $formData = array();
+        foreach ($paramsNames as $name)
+        {
+            $formData[$name] = $this->{$name};
+        }
+        $randVal = rand(1000, 9999); //tworzenie randomowej nazwy aby uniknąć powtórzeń
+        $dataFileName = sprintf('data_%d.txt', $randVal); // przenoszę to do web/uploads
+        file_put_contents($savePath.$dataFileName, print_r($formData, TRUE)); // TRUE aby nie wyświetlał na ekran tylko zwrócił w postaci stringa
+
+        $file = $this->getPaymentFile();
+        if(NULL !== $file){
+            $newName = sprintf('file_%d.%s', $randVal, $file->guessExtension());
+            $file->move($savePath, $newName);
+        }
+    }
+}

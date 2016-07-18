@@ -1,0 +1,22 @@
+Array
+(
+    [name] => Boban Kamienczuk
+    [email] => jds@ed.pl
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1906-07-13 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => af
+    [invest] => Array
+        (
+            [0] => f
+            [1] => a
+        )
+
+    [comments] => dsdsa
+)

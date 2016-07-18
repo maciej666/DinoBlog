@@ -1,0 +1,11 @@
+
+
+#Należy dodać taką linie kodu do app/config/config.yml: - { resource: "@PipiTrainingBundle/Resources/config/parameters.yml" } # przykład mojej ścieżki
+
+parameters:
+    appApiKey: fdsfo3m
+
+twig:
+    globals:
+        meta_description: Z pamiętnika domorosłego inwestora
+        meta_author: Janek Złotówka

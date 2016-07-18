@@ -1,0 +1,33 @@
+
+{% extends 'PipiTrainingBundle::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/pipitraining/css/sidebar.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block pageContainer %}
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row extra-padding">
+
+            {% block contentContainer %}
+
+            {% endblock %}
+
+            <div class="col-md-3 pull-right sidebar">
+
+                {% include 'PipiTrainingBundle:Blog/Widget:gpwWidget.html.twig' %}
+
+                {#{% include 'PipiTrainingBundle:Blog/Widget:followingWidget.html.twig'%}#}
+                {{render(controller('PipiTrainingBundle:Blog:followingWidget')) }}
+
+                {#{% include 'PipiTrainingBundle:Blog/Widget:walletWidget.html.twig' %}#}
+                {{render(controller('PipiTrainingBundle:Blog:walletWidget')) }}
+            </div>
+        </div>
+
+    </div> <!-- /container -->
+
+{% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends 'PipiTrainingBundle:Blog:sidebarLayout.html.twig' %}
+
+{% block title %}  Domorosły inwestor - Komentarze {% endblock %}
+
+
+{% block contentContainer %}
+
+
+    <article class="col-md-8 journal">
+        <h1>Komentownia</h1><br/>
+
+
+        <div class="quest-book">
+
+
+            {#wyłączenie autoeskapowania, czyli automatycznego zabezpieczenia przed <style></style> <strong> </strong> itp.#}
+            {#{% autoescape false %}#}
+
+            {% for entry in comment %}
+                <section>
+                    <h4>{{ entry['name']|raw }}</h4>    {#raw pozwala na wyłączeniea autoeskapowanie miejscowo#}
+                    <p>{{ entry['comment'] }}</p>
+                </section>
+
+
+            {% endfor %}
+        </div>
+            {#{% endautoescape %}#}
+    </article>
+
+
+{% endblock %}

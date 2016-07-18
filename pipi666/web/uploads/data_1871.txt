@@ -1,0 +1,22 @@
+Array
+(
+    [name] => Boban Kamiendsczuk
+    [email] => ffff@tttt.pl
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1909-06-10 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => master
+    [invest] => Array
+        (
+            [0] => a
+            [1] => o
+        )
+
+    [comments] => xxx
+)

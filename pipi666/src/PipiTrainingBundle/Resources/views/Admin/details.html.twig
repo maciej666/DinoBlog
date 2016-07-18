@@ -1,0 +1,48 @@
+{% extends 'PipiTrainingBundle:Blog:sidebarLayout.html.twig' %}
+
+
+
+{% block title %} Strona Admina - tak się wygina o nr. {{register.id}}{% endblock %}
+
+
+
+{% block contentContainer %}
+    <article class="col-md-8">
+        <h1>Rejestracja użytkownika nr. {{register.id}}</h1>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Szczegóły rejestracji
+                <a class="btn btn-info btn-sm pull-right panel-btn" href="{{ path('admin_listing') }}"> Powrót </a>
+                <a class="btn btn-warning btn-sm pull-right panel-btn" href="{{ path('admin_update', {'id': register.id}) }}"> Edytuj </a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <td>ID</td>
+                        <td>{{ register.id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Imię i Nazwisko</td>
+                        <td>{{ register.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ register.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Inwestycje</td>
+                        <td>{{ register.invest|join(', ') }}</td> {#join gdyż to tablica która trzeba zamienić na stringa#}
+                    </tr>
+                    <tr>
+                        <td>Zrodzenie</td>
+                        <td>{{ register.birthdate|date('d.m.Y') }}</td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+
+    </article>
+{% endblock %}

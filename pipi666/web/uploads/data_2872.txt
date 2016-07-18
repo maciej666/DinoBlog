@@ -1,0 +1,24 @@
+Array
+(
+    [name] => Olaksandra Popijka
+    [email] => Demon@nomeD.ru
+    [sex] => f
+    [birthdate] => DateTime Object
+        (
+            [date] => 1926-05-14 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PA
+    [course] => basic
+    [invest] => Array
+        (
+            [0] => f
+            [1] => a
+            [2] => o
+            [3] => etf
+        )
+
+    [comments] => Niech lęka się Bazylogłowy i roślina kłączasta, basta diabeł chłasta
+)

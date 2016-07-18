@@ -1,0 +1,22 @@
+Array
+(
+    [name] => fdsfsd fsdfs
+    [email] => boban.kamienczuk@gmail.com
+    [sex] => m
+    [birthdate] => DateTime Object
+        (
+            [date] => 1909-06-14 00:00:00
+            [timezone_type] => 3
+            [timezone] => Europe/Berlin
+        )
+
+    [country] => PL
+    [course] => af
+    [invest] => Array
+        (
+            [0] => o
+            [1] => etf
+        )
+
+    [comments] => dssdfs
+)
